@@ -120,4 +120,167 @@ h2{font-family:'Space Grotesk';font-size:clamp(36px,5vw,64px);line-height:1;lett
 .cta .btn{background:var(--green);color:white}
 footer{background:#0b2118;color:white;padding:55px 7% 25px}
 .footer-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:45px}
-footer p
+footer p{color:#9caf9f;font-size:13px;margin-top:15px}
+.footer-links{display:flex;gap:25px;font-size:13px;align-items:center}
+.footer-bottom{border-top:1px solid #ffffff20;padding-top:20px;color:#8da092;font-size:11px;display:flex;justify-content:space-between}
+@media(max-width:800px){
+ .navlinks{display:none;position:absolute;top:70px;left:0;width:100%;background:var(--cream);padding:25px;flex-direction:column}
+ .navlinks.open{display:flex}.menu{display:block}
+ .hero{min-height:720px}.hero-orb{width:210px;height:210px;right:-30px;top:43%;opacity:.7}
+ .orb-core{inset:75px}.hero-orb:before{inset:20px}.hero-orb:after{inset:40px}
+ .hero h1{letter-spacing:-4px}.hero-note{display:none}
+ .stats{grid-template-columns:1fr 1fr}
+ .program-grid,.price-grid{grid-template-columns:1fr}
+ .about,.bmi-section{grid-template-columns:1fr}
+ .about-art{min-height:320px}.price-card.featured{transform:none}
+ .section-top{align-items:start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<nav>
+ <a class="logo" href="#">TROPIC<span>®</span></a>
+ <div class="navlinks" id="navlinks">
+  <a href="#programs">Programs</a><a href="#about">Our Story</a>
+  <a href="#pricing">Membership</a><a href="#bmi">BMI Calculator</a>
+  <a class="navbtn" href="#join">JOIN THE CLUB ↗</a>
+ </div>
+ <button class="menu" onclick="document.getElementById('navlinks').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+</nav>
+
+<header class="hero">
+ <div class="hero-content">
+  <div class="eyebrow">THE NEW GENERATION OF FITNESS</div>
+  <h1>FIND YOUR <span>WILD.</span></h1>
+  <p>Escape the ordinary. Build strength, discover your energy, and become the strongest version of yourself in a community that moves together.</p>
+  <a class="btn" href="#programs">EXPLORE TRAINING ↗</a>
+ </div>
+ <div class="hero-orb"><div class="orb-core"></div></div>
+ <div class="hero-note">STRONGER EVERY DAY — SINCE 2020</div>
+</header>
+
+<div class="stats">
+ <div class="stat"><strong>12K+</strong><span>HAPPY MEMBERS</span></div>
+ <div class="stat"><strong>35</strong><span>EXPERT COACHES</span></div>
+ <div class="stat"><strong>24/7</strong><span>GOOD ENERGY</span></div>
+ <div class="stat"><strong>50+</strong><span>WEEKLY CLASSES</span></div>
+</div>
+
+<section class="programs" id="programs">
+ <div class="section-top">
+  <div><div class="kicker">CHOOSE YOUR PATH</div><h2>TRAIN YOUR WAY.</h2></div>
+  <p>Different goals. Different journeys. One community pushing you forward.</p>
+ </div>
+ <div class="program-grid">
+  <article class="program">
+   <div class="number">01 / BUILD POWER</div><div class="symbol">✳</div>
+   <div><h3>STRENGTH</h3><p>Build muscle, develop confidence, and master the fundamentals of lifting.</p></div>
+  </article>
+  <article class="program">
+   <div class="number">02 / FIND YOUR FLOW</div><div class="symbol">〰</div>
+   <div><h3>FUNCTIONAL</h3><p>Move better with dynamic workouts designed for real-world strength.</p></div>
+  </article>
+  <article class="program">
+   <div class="number">03 / PUSH LIMITS</div><div class="symbol">↗</div>
+   <div><h3>HIIT & CARDIO</h3><p>High-energy sessions that challenge your endurance and build stamina.</p></div>
+  </article>
+ </div>
+</section>
+
+<section class="about" id="about">
+ <div class="about-art"><div class="leaf">🌿</div></div>
+ <div class="about-copy">
+  <div class="kicker">MORE THAN A GYM</div>
+  <h2>GOOD ENERGY.<br>GREAT PEOPLE.</h2>
+  <p>We believe fitness should feel like an adventure, not a chore. TROPIC is a space for every body, every ambition, and every starting point.</p>
+  <div class="about-list">
+   <span>Expert personal trainers</span><span>Modern equipment</span>
+   <span>Group fitness classes</span><span>Supportive community</span>
+  </div>
+  <a class="btn" href="#join">MEET YOUR NEW CLUB ↗</a>
+ </div>
+</section>
+
+<section class="pricing" id="pricing">
+ <div class="section-top">
+  <div><div class="kicker">INVEST IN YOURSELF</div><h2>YOUR NEXT LEVEL.</h2></div>
+  <p>Simple memberships. No complicated choices. Just a better way to train.</p>
+ </div>
+ <div class="price-grid">
+  <article class="price-card">
+   <h3>STARTER</h3><div class="price">$29<small> / month</small></div>
+   <p>Your first step into the TROPIC community.</p>
+   <ul><li>Gym floor access</li><li>Locker facilities</li><li>Fitness assessment</li></ul>
+   <a class="btn" href="#join">GET STARTED</a>
+  </article>
+  <article class="price-card featured">
+   <h3>UNLIMITED</h3><div class="price">$59<small> / month</small></div>
+   <p>For those ready to make fitness a lifestyle.</p>
+   <ul><li>24/7 gym access</li><li>Unlimited group classes</li><li>Monthly progress review</li><li>Guest passes</li></ul>
+   <a class="btn" href="#join">MOST POPULAR ↗</a>
+  </article>
+  <article class="price-card">
+   <h3>ELITE</h3><div class="price">$99<small> / month</small></div>
+   <p>Personal attention for ambitious goals.</p>
+   <ul><li>Everything in Unlimited</li><li>Personal training sessions</li><li>Nutrition guidance</li><li>Priority class booking</li></ul>
+   <a class="btn" href="#join">GO ELITE</a>
+  </article>
+ </div>
+</section>
+
+<section class="bmi-section" id="bmi">
+ <div class="bmi-copy">
+  <div class="kicker">KNOW YOUR NUMBERS</div>
+  <h2>CHECK YOUR<br>BODY MASS INDEX.</h2>
+  <p>Enter your height and weight for a quick BMI estimate. BMI is a general screening measure, not a complete assessment of health or fitness.</p>
+ </div>
+ <div class="bmi-box">
+  <h3 style="font-family:'Space Grotesk';font-size:25px">BMI CALCULATOR</h3>
+  <label for="weight">WEIGHT (KG)</label>
+  <input type="number" id="weight" placeholder="e.g. 75" min="1">
+  <label for="height">HEIGHT (CM)</label>
+  <input type="number" id="height" placeholder="e.g. 175" min="1">
+  <button class="btn" onclick="calculateBMI()">CALCULATE BMI ↗</button>
+  <div id="result" aria-live="polite"></div>
+ </div>
+</section>
+
+<section class="cta" id="join">
+ <div class="kicker">YOUR STORY STARTS HERE</div>
+ <h2>READY TO MOVE DIFFERENT?</h2>
+ <p>Take the first step. Your future self will thank you.</p>
+ <a class="btn" href="mailto:hello@tropicathletics.com">LET'S GET MOVING ↗</a>
+</section>
+
+<footer>
+ <div class="footer-top">
+  <div><a class="logo" href="#" style="color:white">TROPIC<span>®</span></a><p>Find your wild. Build your strength.</p></div>
+  <div class="footer-links"><a href="#programs">Programs</a><a href="#about">About</a><a href="#pricing">Membership</a><a href="#bmi">BMI</a></div>
+ </div>
+ <div class="footer-bottom"><span>© 2026 TROPIC ATHLETICS. ALL RIGHTS RESERVED.</span><span>MOVE WELL. LIVE WILD.</span></div>
+</footer>
+
+<script>
+function calculateBMI(){
+ const weight=parseFloat(document.getElementById('weight').value);
+ const height=parseFloat(document.getElementById('height').value);
+ const result=document.getElementById('result');
+ if(!weight||!height||weight<=0||height<=0){
+  result.textContent="Please enter a valid weight and height.";
+  return;
+ }
+ const bmi=weight/Math.pow(height/100,2);
+ let category;
+ if(bmi<18.5)category="Underweight";
+ else if(bmi<25)category="Healthy weight";
+ else if(bmi<30)category="Overweight";
+ else category="Obesity range";
+ result.textContent="Your BMI: "+bmi.toFixed(1)+" — "+category;
+}
+document.querySelectorAll('.navlinks a').forEach(link=>{
+ link.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open'));
+});
+</script>
+</body>
+</html>
+```
