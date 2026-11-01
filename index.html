@@ -1,286 +1,457 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tropic Athletics | Train Beyond Limits</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Demo</title>
+
 <style>
-:root {
-  --green:#123d2c;
-  --lime:#c7f36b;
-  --cream:#f5f3e9;
-  --orange:#ef8152;
-  --dark:#10271e;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--green)}
-a{text-decoration:none;color:inherit}
-button{font:inherit;cursor:pointer}
-nav{
- position:fixed;top:0;width:100%;z-index:100;
- display:flex;justify-content:space-between;align-items:center;
- padding:20px 7%;background:#f5f3e9eF;backdrop-filter:blur(14px);
- border-bottom:1px solid #123d2c18
+
+body{
+  background:#f1f1f1;
+  color:#111;
 }
-.logo{font-family:'Space Grotesk';font-size:23px;font-weight:800;letter-spacing:-1.5px}
-.logo span{color:#79a92e}
-.navlinks{display:flex;gap:30px;align-items:center;font-size:13px;font-weight:700}
-.navlinks a:hover{color:#83ad37}
-.navbtn{background:var(--green);color:white;padding:12px 20px;border-radius:30px}
-.menu{display:none;background:none;border:0;font-size:25px;color:var(--green)}
-.hero{
- min-height:760px;padding:160px 7% 90px;background:var(--green);
- color:var(--cream);position:relative;overflow:hidden;
- display:flex;align-items:center
+
+.container{
+  display:flex;
+  flex-direction:row-reverse;
+  min-height:100vh;
 }
-.hero:before{
- content:"";position:absolute;width:570px;height:570px;border-radius:50%;
- background:radial-gradient(circle,#a8d94c55,transparent 68%);
- right:-80px;top:70px;animation:pulse 5s infinite alternate
+
+.demo{
+  width:70%;
+  background:linear-gradient(180deg,#f4f4f4,#ececec);
+  position:relative;
 }
-.hero-content{position:relative;z-index:2;max-width:680px}
-.eyebrow{font-size:11px;letter-spacing:4px;font-weight:800;color:var(--lime);margin-bottom:25px}
-.hero h1{font-family:'Space Grotesk';font-size:clamp(60px,9vw,116px);line-height:.91;letter-spacing:-7px}
-.hero h1 span{color:var(--lime);display:block}
-.hero p{max-width:450px;color:#c1d0c4;line-height:1.8;margin:30px 0}
-.btn{display:inline-block;background:var(--lime);color:var(--green);padding:16px 27px;border-radius:40px;font-weight:800;font-size:13px;transition:.3s}
-.btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px #c7f36b40}
-.hero-note{position:absolute;right:9%;bottom:75px;color:#d7e5d7;font-size:12px;letter-spacing:2px}
-.hero-orb{
- position:absolute;right:10%;top:22%;width:330px;height:330px;border-radius:50%;
- border:1px solid #c7f36b70;box-shadow:0 0 70px #c7f36b20,inset 0 0 70px #c7f36b20;
- animation:float 6s ease-in-out infinite
+
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+  background:#0a0d14;
 }
-.hero-orb:before,.hero-orb:after{content:"";position:absolute;border:1px solid #c7f36b80;border-radius:50%;inset:35px;transform:rotateX(65deg) rotate(35deg)}
-.hero-orb:after{inset:70px;transform:rotateY(65deg) rotate(-35deg)}
-.orb-core{position:absolute;inset:115px;border-radius:50%;background:radial-gradient(circle,#d9ff8c,#8fbf3b 40%,#254c2c 75%);box-shadow:0 0 55px #c7f36b}
-@keyframes float{50%{transform:translateY(-22px) rotate(8deg)}}
-@keyframes pulse{to{transform:scale(1.2);opacity:.6}}
-@keyframes reveal{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-section{padding:100px 7%}
-.section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
-.kicker{font-size:11px;letter-spacing:3px;font-weight:800;color:#7ca63c;margin-bottom:13px}
-h2{font-family:'Space Grotesk';font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-3px}
-.section-top p{max-width:330px;color:#64746a;font-size:14px;line-height:1.7}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--lime);padding:38px 7%;gap:20px}
-.stat strong{font-family:'Space Grotesk';font-size:42px;display:block}
-.stat span{font-size:11px;font-weight:700;letter-spacing:1px}
-.programs{background:#fff}
-.program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.program{
- min-height:300px;padding:28px;border-radius:18px;background:var(--green);color:white;
- display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:.35s
+
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#f0f0f0,#e8e8e8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-y:auto;
 }
-.program:nth-child(2){background:#d9e7bd;color:var(--green)}
-.program:nth-child(3){background:#e98256}
-.program:hover{transform:translateY(-9px)}
-.program .number{font-size:12px;letter-spacing:2px;opacity:.7}
-.program .symbol{font-size:65px;align-self:flex-end;transition:.5s}
-.program:hover .symbol{transform:rotate(-15deg) scale(1.15)}
-.program h3{font-family:'Space Grotesk';font-size:29px}
-.program p{font-size:13px;line-height:1.6;margin-top:10px;max-width:260px;opacity:.8}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.about-art{
- min-height:460px;border-radius:25px;background:linear-gradient(145deg,#a8ce68,#315e37);
- position:relative;overflow:hidden;display:grid;place-items:center
+
+.box{
+  width:100%;
+  background:#fff;
+  border:1px solid #d92339;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(217,35,57,.15);
 }
-.leaf{font-size:180px;filter:drop-shadow(0 15px 15px #10271e50);transform:rotate(-25deg);animation:float 5s infinite}
-.about-art:after{content:"MOVE / GROW / REPEAT";position:absolute;bottom:25px;left:25px;color:white;font-weight:800;letter-spacing:3px;font-size:11px}
-.about-copy p{color:#68776b;line-height:1.9;font-size:14px;margin:25px 0}
-.about-list{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:25px 0}
-.about-list span{font-size:13px;font-weight:700}
-.about-list span:before{content:"✳ ";color:#80a938}
-.pricing{background:var(--green);color:white}
-.pricing .section-top p{color:#b9c9bc}
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.price-card{background:#1c4b37;border:1px solid #ffffff20;border-radius:18px;padding:30px}
-.price-card.featured{background:var(--lime);color:var(--green);transform:translateY(-12px)}
-.price-card h3{font-family:'Space Grotesk';font-size:22px}
-.price{font-family:'Space Grotesk';font-size:47px;font-weight:700;margin:25px 0}
-.price small{font-size:13px;font-weight:500}
-.price-card p{font-size:13px;opacity:.75;margin-bottom:24px}
-.price-card ul{list-style:none;margin:25px 0;line-height:2.5;font-size:13px}
-.price-card li:before{content:"✓ ";color:var(--lime);font-weight:900}
-.featured li:before{color:#537b21}
-.price-card .btn{background:white}
-.featured .btn{background:var(--green);color:white}
-.bmi-section{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.bmi-box{background:white;padding:35px;border-radius:20px;box-shadow:0 15px 50px #123d2c0c}
-.bmi-box label{font-size:12px;font-weight:800;display:block;margin:17px 0 8px}
-.bmi-box input{width:100%;padding:15px;border:1px solid #dce4d8;border-radius:9px;font:inherit;outline:none}
-.bmi-box input:focus{border-color:#83ad37}
-.bmi-box button{margin-top:20px;width:100%;border:0}
-#result{margin-top:20px;font-weight:800;color:#648c2f;text-align:center;min-height:24px}
-.bmi-copy p{color:#64746a;line-height:1.8;margin-top:20px}
-.cta{background:var(--lime);text-align:center;padding:85px 7%}
-.cta h2{max-width:700px;margin:0 auto 25px}
-.cta p{margin-bottom:30px;color:#48613b}
-.cta .btn{background:var(--green);color:white}
-footer{background:#0b2118;color:white;padding:55px 7% 25px}
-.footer-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:45px}
-footer p{color:#9caf9f;font-size:13px;margin-top:15px}
-.footer-links{display:flex;gap:25px;font-size:13px;align-items:center}
-.footer-bottom{border-top:1px solid #ffffff20;padding-top:20px;color:#8da092;font-size:11px;display:flex;justify-content:space-between}
-@media(max-width:800px){
- .navlinks{display:none;position:absolute;top:70px;left:0;width:100%;background:var(--cream);padding:25px;flex-direction:column}
- .navlinks.open{display:flex}.menu{display:block}
- .hero{min-height:720px}.hero-orb{width:210px;height:210px;right:-30px;top:43%;opacity:.7}
- .orb-core{inset:75px}.hero-orb:before{inset:20px}.hero-orb:after{inset:40px}
- .hero h1{letter-spacing:-4px}.hero-note{display:none}
- .stats{grid-template-columns:1fr 1fr}
- .program-grid,.price-grid{grid-template-columns:1fr}
- .about,.bmi-section{grid-template-columns:1fr}
- .about-art{min-height:320px}.price-card.featured{transform:none}
- .section-top{align-items:start;flex-direction:column}
+
+.badge{
+  display:inline-block;
+  background:linear-gradient(135deg,#e9223f,#b90f2f);
+  color:#fff;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:34px;
+  color:#111;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#1d1d1d;
+}
+
+.features{
+  display:grid;
+  gap:12px;
+  margin:22px 0;
+}
+
+.feature{
+  background:#fff;
+  border:1px solid #d92339;
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+  color:#111;
+}
+
+.feature span{
+  color:#d92339;
+}
+
+/* Signup Button */
+.signup-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 16px;
+  background:linear-gradient(180deg,#e6223d,#b80d2d);
+  color:#fff;
+  text-decoration:none;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:800;
+  border:1px solid #9c0a26;
+  transition:.3s;
+}
+
+.signup-btn:hover{
+  background:linear-gradient(180deg,#ce1835,#9b0d28);
+  transform:scale(1.03);
+}
+
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.website-row a{
+  text-decoration:none;
+}
+
+.website{
+  color:#d92339;
+}
+
+.whatsapp-small{
+  color:#d92339;
+}
+
+.cta{
+  display:block;
+  background:linear-gradient(180deg,#eb203c,#bc1233);
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(217,35,57,.3);
+  transition:.3s;
+}
+
+.cta:hover{
+  transform:scale(1.03);
+  background:linear-gradient(180deg,#d51b35,#a60c29);
+}
+
+/* Floating Signup Button */
+.floating-signup{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:linear-gradient(180deg,#e9223f,#b80f2f);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:900;
+  border:3px solid #f4e7b8;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(217,35,57,0.5);
+  transition:.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.floating-signup:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:linear-gradient(180deg,#d81d39,#9d0b26);
+  box-shadow:0 12px 25px rgba(217,35,57,0.7);
+}
+
+.trust{
+  margin-top:16px;
+  color:#222;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#555;
+  line-height:1.5;
+}
+
+.bonus-popup{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:rgba(0,0,0,.78);
+}
+
+.bonus-popup[hidden]{
+  display:none;
+}
+
+.bonus-dialog{
+  position:relative;
+  width:min(100%,420px);
+  padding:34px 24px 28px;
+  border:2px solid #d92339;
+  border-radius:16px;
+  background:linear-gradient(145deg,#fff,#f2f2f2 70%);
+  text-align:center;
+  box-shadow:0 18px 60px rgba(0,0,0,.25);
+  animation:popup-enter .24s ease-out;
+}
+
+.bonus-close{
+  position:absolute;
+  top:8px;
+  right:12px;
+  border:0;
+  background:transparent;
+  color:#333;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.bonus-dialog h2{
+  margin-bottom:10px;
+  color:#111;
+  font-size:30px;
+}
+
+.bonus-dialog p{
+  margin-bottom:22px;
+  color:#222;
+  line-height:1.5;
+}
+
+.bonus-claim{
+  display:block;
+  padding:14px 18px;
+  border-radius:8px;
+  background:linear-gradient(180deg,#eb203c,#bc1233);
+  color:#fff;
+  font-size:17px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.bonus-claim:hover{
+  background:linear-gradient(180deg,#d51b35,#a60c29);
+}
+
+@keyframes popup-enter{
+  from{opacity:0;transform:translateY(10px) scale(.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .bonus-dialog{animation:none}
+}
+
+@media(max-width:768px){
+  .container{
+    flex-direction:column-reverse;
+  }
+
+  .demo,
+  .right{
+    width:100%;
+  }
+
+  iframe{
+    height:500px;
+  }
+
+  .right{
+    padding:20px;
+  }
+}
+
+@media(max-width:480px){
+  h1{
+    font-size:28px;
+  }
+
+  .sub{
+    font-size:16px;
+  }
+
+  .feature{
+    font-size:16px;
+    padding:12px;
+  }
+
+  .signup-btn{
+    font-size:14px;
+    padding:8px 13px;
+  }
+
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
+
+  .website-row{
+    flex-direction:column;
+    gap:8px;
+  }
 }
 </style>
+
 </head>
+
 <body>
-<nav>
- <a class="logo" href="#">TROPIC<span>®</span></a>
- <div class="navlinks" id="navlinks">
-  <a href="#programs">Programs</a><a href="#about">Our Story</a>
-  <a href="#pricing">Membership</a><a href="#bmi">BMI Calculator</a>
-  <a class="navbtn" href="#join">JOIN THE CLUB ↗</a>
- </div>
- <button class="menu" onclick="document.getElementById('navlinks').classList.toggle('open')" aria-label="Toggle menu">☰</button>
-</nav>
 
-<header class="hero">
- <div class="hero-content">
-  <div class="eyebrow">THE NEW GENERATION OF FITNESS</div>
-  <h1>FIND YOUR <span>WILD.</span></h1>
-  <p>Escape the ordinary. Build strength, discover your energy, and become the strongest version of yourself in a community that moves together.</p>
-  <a class="btn" href="#programs">EXPLORE TRAINING ↗</a>
- </div>
- <div class="hero-orb"><div class="orb-core"></div></div>
- <div class="hero-note">STRONGER EVERY DAY — SINCE 2020</div>
-</header>
-
-<div class="stats">
- <div class="stat"><strong>12K+</strong><span>HAPPY MEMBERS</span></div>
- <div class="stat"><strong>35</strong><span>EXPERT COACHES</span></div>
- <div class="stat"><strong>24/7</strong><span>GOOD ENERGY</span></div>
- <div class="stat"><strong>50+</strong><span>WEEKLY CLASSES</span></div>
+<div class="bonus-popup" id="bonusPopup" role="dialog" aria-modal="true" aria-labelledby="bonusTitle">
+  <div class="bonus-dialog">
+    <button class="bonus-close" id="bonusClose" type="button" aria-label="Close bonus popup">&times;</button>
+    <h2 id="bonusTitle">Claim 10% Bonus</h2>
+    <p>Sign up now and get started with the deposit bonus.</p>
+    <a class="bonus-claim" href="https://ballysbat.com/clk?src=MtH8kmxgY">🔥 Claim Bonus &amp; Sign Up</a>
+  </div>
 </div>
 
-<section class="programs" id="programs">
- <div class="section-top">
-  <div><div class="kicker">CHOOSE YOUR PATH</div><h2>TRAIN YOUR WAY.</h2></div>
-  <p>Different goals. Different journeys. One community pushing you forward.</p>
- </div>
- <div class="program-grid">
-  <article class="program">
-   <div class="number">01 / BUILD POWER</div><div class="symbol">✳</div>
-   <div><h3>STRENGTH</h3><p>Build muscle, develop confidence, and master the fundamentals of lifting.</p></div>
-  </article>
-  <article class="program">
-   <div class="number">02 / FIND YOUR FLOW</div><div class="symbol">〰</div>
-   <div><h3>FUNCTIONAL</h3><p>Move better with dynamic workouts designed for real-world strength.</p></div>
-  </article>
-  <article class="program">
-   <div class="number">03 / PUSH LIMITS</div><div class="symbol">↗</div>
-   <div><h3>HIIT & CARDIO</h3><p>High-energy sessions that challenge your endurance and build stamina.</p></div>
-  </article>
- </div>
-</section>
+<div class="container">
 
-<section class="about" id="about">
- <div class="about-art"><div class="leaf">🌿</div></div>
- <div class="about-copy">
-  <div class="kicker">MORE THAN A GYM</div>
-  <h2>GOOD ENERGY.<br>GREAT PEOPLE.</h2>
-  <p>We believe fitness should feel like an adventure, not a chore. TROPIC is a space for every body, every ambition, and every starting point.</p>
-  <div class="about-list">
-   <span>Expert personal trainers</span><span>Modern equipment</span>
-   <span>Group fitness classes</span><span>Supportive community</span>
+  <div class="demo">
+    <a href="https://ballysbat.com/clk?src=MtH8kmxgY" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
+    <iframe src="https://ballysbat.com/clk?src=MtH8kmxgY"></iframe>
   </div>
-  <a class="btn" href="#join">MEET YOUR NEW CLUB ↗</a>
- </div>
-</section>
 
-<section class="pricing" id="pricing">
- <div class="section-top">
-  <div><div class="kicker">INVEST IN YOURSELF</div><h2>YOUR NEXT LEVEL.</h2></div>
-  <p>Simple memberships. No complicated choices. Just a better way to train.</p>
- </div>
- <div class="price-grid">
-  <article class="price-card">
-   <h3>STARTER</h3><div class="price">$29<small> / month</small></div>
-   <p>Your first step into the TROPIC community.</p>
-   <ul><li>Gym floor access</li><li>Locker facilities</li><li>Fitness assessment</li></ul>
-   <a class="btn" href="#join">GET STARTED</a>
-  </article>
-  <article class="price-card featured">
-   <h3>UNLIMITED</h3><div class="price">$59<small> / month</small></div>
-   <p>For those ready to make fitness a lifestyle.</p>
-   <ul><li>24/7 gym access</li><li>Unlimited group classes</li><li>Monthly progress review</li><li>Guest passes</li></ul>
-   <a class="btn" href="#join">MOST POPULAR ↗</a>
-  </article>
-  <article class="price-card">
-   <h3>ELITE</h3><div class="price">$99<small> / month</small></div>
-   <p>Personal attention for ambitious goals.</p>
-   <ul><li>Everything in Unlimited</li><li>Personal training sessions</li><li>Nutrition guidance</li><li>Priority class booking</li></ul>
-   <a class="btn" href="#join">GO ELITE</a>
-  </article>
- </div>
-</section>
+  <div class="right">
+    <div class="box">
 
-<section class="bmi-section" id="bmi">
- <div class="bmi-copy">
-  <div class="kicker">KNOW YOUR NUMBERS</div>
-  <h2>CHECK YOUR<br>BODY MASS INDEX.</h2>
-  <p>Enter your height and weight for a quick BMI estimate. BMI is a general screening measure, not a complete assessment of health or fitness.</p>
- </div>
- <div class="bmi-box">
-  <h3 style="font-family:'Space Grotesk';font-size:25px">BMI CALCULATOR</h3>
-  <label for="weight">WEIGHT (KG)</label>
-  <input type="number" id="weight" placeholder="e.g. 75" min="1">
-  <label for="height">HEIGHT (CM)</label>
-  <input type="number" id="height" placeholder="e.g. 175" min="1">
-  <button class="btn" onclick="calculateBMI()">CALCULATE BMI ↗</button>
-  <div id="result" aria-live="polite"></div>
- </div>
-</section>
+  <div class="badge">AUTO WEBSITE</div>
 
-<section class="cta" id="join">
- <div class="kicker">YOUR STORY STARTS HERE</div>
- <h2>READY TO MOVE DIFFERENT?</h2>
- <p>Take the first step. Your future self will thank you.</p>
- <a class="btn" href="mailto:hello@tropicathletics.com">LET'S GET MOVING ↗</a>
-</section>
+  <h1>Get Your ID Now</h1>
 
-<footer>
- <div class="footer-top">
-  <div><a class="logo" href="#" style="color:white">TROPIC<span>®</span></a><p>Find your wild. Build your strength.</p></div>
-  <div class="footer-links"><a href="#programs">Programs</a><a href="#about">About</a><a href="#pricing">Membership</a><a href="#bmi">BMI</a></div>
- </div>
- <div class="footer-bottom"><span>© 2026 TROPIC ATHLETICS. ALL RIGHTS RESERVED.</span><span>MOVE WELL. LIVE WILD.</span></div>
-</footer>
+  <p class="sub">
+    Fast auto website service with easy deposit support.
+    New users can start quickly through WhatsApp.
+  </p>
+
+  <div class="features">
+
+    <div class="feature">
+      Minimum Deposit: <span>₹100 Only</span>
+    </div>
+
+    <div class="feature">
+      Welcome Bonus: <span>10%</span>
+    </div>
+
+    <div class="feature">
+      Auto Website Support:
+      <a
+        class="signup-btn"
+        href="https://ballysbat.com/clk?src=MtH8kmxgY"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click on Signup
+      </a>
+    </div>
+
+    <div class="feature">
+      Quick Help:
+      <span>Deposit &amp; Withdrawal Support</span>
+    </div>
+
+  </div>
+
+  <div class="website-row">
+
+    <a
+      class="website"
+      href="https://ballysbat.com/clk?src=MtH8kmxgY"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🌐 https://ballysbat.com/clk?src=MtH8kmxgY
+    </a>
+
+    <a
+      class="whatsapp-small"
+      href="https://wa.me/+447598835889"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+  <a
+    class="cta"
+    href="https://wa.me/+447598835889?text=Hello%20I%20want%20new%20ballys%20ID"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📲 WhatsApp Now
+  </a>
+
+  <p class="trust">
+    ✅ Trusted ballys Support<br>
+    ✅ Simple Process<br>
+    ✅ Fast Response
+  </p>
+
+  <div class="footer">
+    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+  </div>
+
+</div>
+
+  </div>
+
+</div>
 
 <script>
-function calculateBMI(){
- const weight=parseFloat(document.getElementById('weight').value);
- const height=parseFloat(document.getElementById('height').value);
- const result=document.getElementById('result');
- if(!weight||!height||weight<=0||height<=0){
-  result.textContent="Please enter a valid weight and height.";
-  return;
- }
- const bmi=weight/Math.pow(height/100,2);
- let category;
- if(bmi<18.5)category="Underweight";
- else if(bmi<25)category="Healthy weight";
- else if(bmi<30)category="Overweight";
- else category="Obesity range";
- result.textContent="Your BMI: "+bmi.toFixed(1)+" — "+category;
+const bonusPopup = document.getElementById('bonusPopup');
+const bonusClose = document.getElementById('bonusClose');
+
+function closeBonusPopup(){
+  bonusPopup.hidden = true;
 }
-document.querySelectorAll('.navlinks a').forEach(link=>{
- link.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open'));
+
+bonusClose.addEventListener('click', closeBonusPopup);
+bonusPopup.addEventListener('click', (event) => {
+  if(event.target === bonusPopup) closeBonusPopup();
+});
+document.addEventListener('keydown', (event) => {
+  if(event.key === 'Escape') closeBonusPopup();
 });
 </script>
+
 </body>
 </html>
-```
